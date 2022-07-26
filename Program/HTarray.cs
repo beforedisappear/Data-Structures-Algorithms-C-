@@ -57,19 +57,6 @@ namespace ASID
         }
         public SingleNode<T> SearchByKey(int key)    // результат поиска: ключ-значение
         {
-            //int j = 0;
-            //SingleNode<T> res = null;
-            //while (j != active.Length)
-            //{
-            //    if (htArray[j] != null)
-            //    {
-            //        if (htArray[j].Key == key) { res = htArray[j]; break; }
-            //        if (j == htArray.Length) { res = null; break; }
-            //    }
-            //    j++;
-            //}
-            //return res;
-
             SingleNode<T> res = null;
             int j = HashCode(key);
             if (active[j] == 1)
