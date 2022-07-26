@@ -8,13 +8,13 @@ namespace ASID
 {
     class Graph
     {
-        public List<Vertex> AllVertexes = new List<Vertex>(); // cписок всех вершин
+        public List<Vertex> Vertices = new List<Vertex>(); // cписок всех вершин
         public List<Edge> AllEdges = new List<Edge>(); // cписок всех ребер
-        public int VertexCount { get { return AllVertexes.Count; } } // количество вершин
+        public int VertexCount { get { return Vertices.Count; } } // количество вершин
         public int EdgeCount { get { return AllEdges.Count; } } // количество ребер
         public void AddVertex(Vertex vertex) // добавить вершину в граф
         {
-            AllVertexes.Add(vertex);
+            Vertices.Add(vertex);
         }
         public bool AddEdge(Vertex from, Vertex to) // добавить ребро в граф
         {
@@ -26,11 +26,11 @@ namespace ASID
         }
         public void RemoveVertex(Vertex vertex) // удаление вершины
         {
-            AllVertexes.Remove(vertex);
+            Vertices.Remove(vertex);
         }
         public bool VertexIsContains(Vertex vertexName) // наличие вершины
         {
-            foreach (var v in AllVertexes)
+            foreach (var v in Vertices)
             {
                 if (v.Equals(vertexName))
                 {
@@ -41,7 +41,7 @@ namespace ASID
         }
         public Vertex FindVertex(Vertex vertexName) // поиск вершины
         {
-            foreach (var v in AllVertexes)
+            foreach (var v in Vertices)
             {
                 if (v.Equals(vertexName))
                 {
@@ -52,7 +52,7 @@ namespace ASID
         }
         public void View() // просмотр графа
         {
-            foreach (Vertex v in AllVertexes)
+            foreach (Vertex v in Vertices)
             {
                 Console.WriteLine("Vertex : {0}", v);
                 foreach (Edge e in v.AdjEdges)
@@ -64,7 +64,7 @@ namespace ASID
         public void BFS(Vertex startVertex)     // поиск в ширину (обход графа)
         {
             //v - вершина; u - вершина смежная с v;
-            foreach (Vertex vertex in AllVertexes)
+            foreach (Vertex vertex in Vertices)
             {
                 vertex.distance = double.MaxValue; // (бесконечность)
                 vertex.prevVertex = null;          // предшественник
@@ -96,13 +96,13 @@ namespace ASID
         }
         public void DFS(Vertex startVertex) // поиск в глубину (обход графа)
         {
-            foreach (Vertex vertex in AllVertexes) // раскраска вершин в белый
+            foreach (Vertex vertex in Vertices) // раскраска вершин в белый
             {
                 vertex.color = ColorVertex.White;
                 vertex.prevVertex = null;
             }
             startVertex.time = 0;
-            foreach (Vertex vertex in AllVertexes)
+            foreach (Vertex vertex in Vertices)
             {
                 if (vertex.color == ColorVertex.White)   // если перед вызовом DFS_Visit вершина белая
                 {
@@ -141,14 +141,14 @@ namespace ASID
         }
         public int GraphConnectivity()      // cвязность графа
         {
-            foreach (Vertex vertex in AllVertexes)
+            foreach (Vertex vertex in Vertices)
             {
                 vertex.distance = double.MaxValue; //(бесконечность)
             }
             int cс = 0; // счетчик компонентов связности
             while (true)
             {
-                foreach (Vertex vertex in AllVertexes) // перебор всех вершин
+                foreach (Vertex vertex in Vertices) // перебор всех вершин
                 { // у исследованных вершин (черных) dinstance != MaxValue
                     if (vertex.distance == double.MaxValue)
                     {
