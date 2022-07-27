@@ -8,7 +8,7 @@ namespace ASID
 {
     class MySort
     {
-        public static void BubleSort<T>(T[] arr) where T : IComparable
+        public static void BubbleSort<T>(T[] arr) where T : IComparable
         {
             int n = arr.Length;
             int swapcount = n - 1;
@@ -68,7 +68,7 @@ namespace ASID
             }
 
         }
-        public static void ShakerSort<T>(T[] arr) where T : IComparable  // bublesort с двух сторон 
+        public static void ShakerSort<T>(T[] arr) where T : IComparable  // bubblesort с двух сторон 
         {
             int left = 0;
             int right = arr.Length - 1;

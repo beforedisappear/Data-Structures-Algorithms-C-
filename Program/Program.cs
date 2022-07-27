@@ -68,8 +68,8 @@ namespace ConsoleTest
             // Test Sorting
 
             Console.WriteLine("\nTest Sort:\n");
-            MySort.BubleSort(a1);
-            Console.Write("BubleSort of a1:");
+            MySort.BubbleSort(a1);
+            Console.Write("BubbleSort of a1:");
             for (int i = 0; i < a1.Length; i++)
             {
                 Console.Write(" {0}", a1[i]);
