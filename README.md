@@ -1042,7 +1042,7 @@ public int GraphConnectivity() // связность графа
 
 Ниже продемонстрирован граф с 3-мя компонентами связи.
 
-![connnectivity](https://i.imgur.com/8kIAkzb.png)
+![connnectivity](https://i.imgur.com/UEXGgJR.png)
 
 ```cs
 public void PrintWay(Vertex startVertex, Vertex vertex) // метод для отображения работы DFS
