@@ -371,7 +371,7 @@ namespace ConsoleTest
             
             //orgraph.BFS(v1);
             //Console.WriteLine("\n BFS {0} test start: ", v1);
-            //foreach (Vertex v in orgraph.AllVertexes)
+            //foreach (Vertex v in orgraph.Vertices)
             //{
             //    orgraph.PrintWay(v1, v);
             //}
@@ -380,7 +380,7 @@ namespace ConsoleTest
             //orgraph.DFS(v1);
             graph.DFS(v11);
             Console.WriteLine("\n DFS {0} test start: ", v1);
-            foreach (Vertex v in orgraph.AllVertexes)
+            foreach (Vertex v in orgraph.Vertices)
             {
                 orgraph.PrintWay(v1, v);
             }
