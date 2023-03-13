@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\2022 АиСД ЛР 6110 КлещевР\\Program\\Program\\Program.csproj": {}
+    "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj": {}
   },
   "projects": {
-    "E:\\2022 АиСД ЛР 6110 КлещевР\\Program\\Program\\Program.csproj": {
+    "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\2022 АиСД ЛР 6110 КлещевР\\Program\\Program\\Program.csproj",
+        "projectUniqueName": "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj",
         "projectName": "Program",
-        "projectPath": "E:\\2022 АиСД ЛР 6110 КлещевР\\Program\\Program\\Program.csproj",
+        "projectPath": "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj",
         "packagesPath": "C:\\Users\\roman\\.nuget\\packages\\",
-        "outputPath": "E:\\2022 АиСД ЛР 6110 КлещевР\\Program\\Program\\obj\\",
+        "outputPath": "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,7 +45,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -54,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -27,6 +27,10 @@ namespace ConsoleTest
             // Test Sets
             Console.WriteLine("\nTest Set:\n");
 
+            int[] a01 = { 4, 2, 2, 8, 3, 3, 1 };
+            int[] a02 = { 121, 432, 564, 23, 1, 45, 788 };
+            double[] a03 = { 0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51 }; // double example
+            double[] a04 = { 21, 9, 3, 11, 16 };                         // int example
             int[] a1 = { 5, -3, 4, 1 };
             int[] a2 = { 3, 4, 1, -6, 9 };
             int[] a3 = { 2, 1, 8, 4, 14, 7 };
@@ -36,8 +40,11 @@ namespace ConsoleTest
             int[] a7 = { 8, 7, 1, 3, 5, 2, 4, 6 };
             int[] a8 = { 1, 2, 3 };
             int[] a9 = { 1, 2, 3, 4, 5, 6, 7 };
+            int[] a10 = { -2, 7, 15, -14, 0, 15, 0, 7, -7, -4, -13, 5, 8, -14, 12, 4 };
             string[] mas = { "a", "b" , "c" };
             string[] ss = { "Misha", "Kolya", "Vasya" };
+
+
             Set<int> s1 = new Set<int>(a1);
             Set<int> s2 = new Set<int>(a2);
             Set<int> s3 = Set<int>.Union(s1, s2); // создание нового множества 
@@ -68,6 +75,34 @@ namespace ConsoleTest
             // Test Sorting
 
             Console.WriteLine("\nTest Sort:\n");
+            MySort.CountSort(a01);
+            Console.Write("CountSort of a01:");
+            for (int i = 0; i < a01.Length; i++)
+            {
+                Console.Write(" {0}", a01[i]);
+            }
+            Console.WriteLine();
+            MySort.RadixSort(a02);
+            Console.Write("RadixSort of a02:");
+            for (int i = 0; i < a02.Length; i++)
+            {
+                Console.Write(" {0}", a02[i]);
+            }
+            Console.WriteLine();
+            MySort.BucketSort(a03);
+            Console.Write("BucketSort of a03:");
+            for (int i = 0; i < a03.Length; i++)
+            {
+                Console.Write(" {0}", a03[i]);
+            }
+            Console.WriteLine();
+            MySort.BucketSort(a04);
+            Console.Write("BucketSort of a04:");
+            for (int i = 0; i < a04.Length; i++)
+            {
+                Console.Write(" {0}", a04[i]);
+            }
+            Console.WriteLine();
             MySort.BubbleSort(a1);
             Console.Write("BubbleSort of a1:");
             for (int i = 0; i < a1.Length; i++)
@@ -116,6 +151,13 @@ namespace ConsoleTest
             for (int i = 0; i < a7.Length; i++)
             {
                 Console.Write(" {0}", a7[i]);
+            }
+            Console.WriteLine();
+            MySort.TimSort(a10);
+            Console.Write("TimSort of a7:");
+            for (int i = 0; i < a10.Length; i++)
+            {
+                Console.Write(" {0}", a10[i]);
             }
             Console.WriteLine();
             Console.ReadKey();

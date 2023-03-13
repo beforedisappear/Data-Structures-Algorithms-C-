@@ -72,49 +72,15 @@ namespace ASID
 			// разбиение исходного массива на подмассивы для последующей сортировки
 			for (i = 0; i + 2 * gap - 1 < length; i = i + 2 * gap)
 			{
-				Merge(arr, i, i + gap - 1, i + 2 * gap - 1);
+				MySort.Merge(arr, i, i + gap - 1, i + 2 * gap - 1);
 			}
 			// если кол-во элементов массива нечетное
 			if (i + gap - 1 < length)
 			{
-				Merge(arr, i, i + gap - 1, length - 1);
+				MySort.Merge(arr, i, i + gap - 1, length - 1);
 			}
 		}
-		public static void Merge<T>(T[] arr, int minindex, int middleindex, int maxindex) where T : IComparable
-        {
-            var left = minindex; // указатель левого подмассива
-            var right = middleindex + 1; // указатель правого подмассива
-            var temparr = new T[maxindex - minindex + 1]; // переменный массив для записи отсортированного массива
-            var index = 0; // индекс для заполнения переменного массива
-            while ((left <= middleindex) && (right <= maxindex)) // передвижение левого и правого указателя
-            {   // указатели движутся, пока не выйдут за пределы массива
-                if (arr[left].CompareTo(arr[right]) < 0)
-                {
-                    temparr[index] = arr[left];
-                    left++;
-                }
-                else
-                {
-                    temparr[index] = arr[right];
-                    right++;
-                }
-                index++;
-            }
-            for (var i = left; i <= middleindex; i++) // дозаполенение отсортированными элементами левого подмассива (под левым указателем)
-			{
-                temparr[index] = arr[i];
-                index++;
-            }
-            for (var i = right; i <= maxindex; i++) // дозаполенение отсортированными элементами правого подмассива (под правым указателем)
-            {
-                temparr[index] = arr[i];
-                index++;
-            }
-            for (var i = 0; i < temparr.Length; i++) // заполнение исходного массива элементами отсортированного подмассива
-            {
-                arr[minindex + i] = temparr[i];
-            }
-        }
+		
         public static T[] MergeSortNR2<T>(T[] arr) where T : IComparable
         {
             Stack<T[]> stack1 = new Stack<T[]>(); // создаем стек1
