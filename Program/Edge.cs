@@ -17,7 +17,7 @@ namespace ASID
             To = null;
             Weight = 0;
         }
-        public Edge(Vertex from, Vertex to, double weight = 1) // конструктор для создания ребра с весом 1
+        public Edge(Vertex from, Vertex to, double weight = 1) // конструктор для создания ребра с весом 1 по умолчанию
         {
             From = from;
             To = to;

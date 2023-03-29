@@ -362,16 +362,18 @@ namespace ConsoleTest
             graph.AddEdge(v22, v11); // B -> A
             graph.AddEdge(v11, v33); // A -> C
             graph.AddEdge(v33, v11); // C -> A
-            graph.AddEdge(v22, v44); // B -> D
-            graph.AddEdge(v44, v22); // D -> B
             graph.AddEdge(v33, v44); // C -> D
             graph.AddEdge(v44, v33); // D -> C
             graph.AddEdge(v22, v55); // B -> E
             graph.AddEdge(v55, v22); // E -> B
-            graph.AddEdge(v44, v55); // D -> E
-            graph.AddEdge(v55, v44); // E -> D
+            graph.AddEdge(v22, v66); // B -> F
+            graph.AddEdge(v66, v22); // F -> B
             graph.AddEdge(v55, v66); // E -> F
             graph.AddEdge(v66, v55); // F -> E
+            graph.AddEdge(v44, v77); // D -> G
+            graph.AddEdge(v77, v44); // G -> D
+            graph.AddEdge(v66, v77); // F -> G
+            graph.AddEdge(v77, v66); // G -> F
 
             graph.View();
 
@@ -384,7 +386,7 @@ namespace ConsoleTest
             Vertex v6 = new Vertex("F");
             Vertex v7 = new Vertex("G");
 
-            Console.WriteLine("\nПростой граф:"); // граф без ребер
+            Console.WriteLine("\nПростой граф:\n"); // граф без ребер
             orgraph.AddVertex(v1);
             orgraph.AddVertex(v2);
             orgraph.AddVertex(v3);
@@ -408,25 +410,11 @@ namespace ConsoleTest
 
             orgraph.View();
 
-            Console.WriteLine("\nFind Vertex v1 in graph (with name 'A') : {0} ", orgraph.VertexIsContains(v1));
-            Console.WriteLine("Find Vertex v11 in graph (with name 'A') : {0} ", orgraph.VertexIsContains(v11));
-            
-            //orgraph.BFS(v1);
-            //Console.WriteLine("\n BFS {0} test start: ", v1);
-            //foreach (Vertex v in orgraph.Vertices)
-            //{
-            //    orgraph.PrintWay(v1, v);
-            //}
-            //Console.WriteLine("\nBFS {0} test end\n", v1);
+            Console.WriteLine("\nFind Vertex v1 in orgraph (with name 'A') : {0} ", orgraph.VertexIsContains(v1));
+            Console.WriteLine("Find Vertex v11 in orgraph (with name 'A') : {0} ", orgraph.VertexIsContains(v11));
 
-            //orgraph.DFS(v1);
+            graph.BFS(v11);
             graph.DFS(v11);
-            Console.WriteLine("\n DFS {0} test start: ", v1);
-            foreach (Vertex v in orgraph.Vertices)
-            {
-                orgraph.PrintWay(v1, v);
-            }
-            Console.WriteLine("\nDFS {0} test end\n", v1);
 
             // Граф для теста связаности
             Graph sgraph = new Graph();
@@ -453,8 +441,47 @@ namespace ConsoleTest
 
             sgraph.View();
 
-            Console.WriteLine("\nconnectivity of orgraph is {0} (компоненты связности)", orgraph.GraphConnectivity());
-            Console.WriteLine("connectivity of sgraph is {0} (компоненты связности)", sgraph.GraphConnectivity());
+            Console.WriteLine("\nconnectivity of orgraph is {0} (компонент связности)", orgraph.GraphConnectivity());
+            Console.WriteLine("connectivity of sgraph is {0} (компонент связности)\n", sgraph.GraphConnectivity());
+
+
+            Graph d_graph = new Graph();
+            Vertex ve0 = new Vertex("0");
+            Vertex ve1 = new Vertex("1");
+            Vertex ve2 = new Vertex("2");
+            Vertex ve3 = new Vertex("3");
+            Vertex ve4 = new Vertex("4");
+            Vertex ve5 = new Vertex("5");
+
+            d_graph.AddVertex(ve0);
+            d_graph.AddVertex(ve1);
+            d_graph.AddVertex(ve2);
+            d_graph.AddVertex(ve3);
+            d_graph.AddVertex(ve4);
+            d_graph.AddVertex(ve5);
+
+            d_graph.AddEdge(ve0, ve2, 13);
+            d_graph.AddEdge(ve2, ve0, 13);
+            d_graph.AddEdge(ve0, ve4, 21);
+            d_graph.AddEdge(ve4, ve0, 21);
+            d_graph.AddEdge(ve0, ve5, 27);
+            d_graph.AddEdge(ve5, ve0, 27);
+            d_graph.AddEdge(ve2, ve3, 82);
+            d_graph.AddEdge(ve3, ve2, 82);
+            d_graph.AddEdge(ve2, ve4, 77);
+            d_graph.AddEdge(ve4, ve2, 77);
+            d_graph.AddEdge(ve4, ve5, 11);
+            d_graph.AddEdge(ve5, ve4, 11);
+            d_graph.AddEdge(ve1, ve4, 43);
+            d_graph.AddEdge(ve4, ve1, 43);
+            d_graph.AddEdge(ve1, ve5, 38);
+            d_graph.AddEdge(ve5, ve1, 38);
+
+            d_graph.View();
+
+            Console.WriteLine("\nDijkstra test of d_graph: \n");
+            d_graph.Dijkstra(ve0);
+
             Console.ReadKey();
 
             #endregion
@@ -544,6 +571,7 @@ namespace ConsoleTest
             Console.WriteLine();
 
             #endregion
+
         }
     }
 }

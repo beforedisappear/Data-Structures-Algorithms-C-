@@ -20,7 +20,7 @@ namespace ASID
         public List<Edge> AdjEdges;   // набор смежных ребер (ребра, которые выходят из данной вершины)
         public ColorVertex color;
 
-        // для DFS
+        // для алгоритмов обхода
         public int discovered;  // обнаруженная вершина
         public int finished;    // обработанная вершина
         public int time;        // метка времени

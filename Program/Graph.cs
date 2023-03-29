@@ -12,14 +12,16 @@ namespace ASID
         public List<Edge> AllEdges = new List<Edge>(); // cписок всех ребер
         public int VertexCount { get { return Vertices.Count; } } // количество вершин
         public int EdgeCount { get { return AllEdges.Count; } } // количество ребер
-        public void AddVertex(Vertex vertex) // добавить вершину в граф
+        public bool AddVertex(Vertex vertex) // добавить вершину в граф
         {
+            if (VertexIsContains(vertex)) return false;
             Vertices.Add(vertex);
+            return true;
         }
-        public bool AddEdge(Vertex from, Vertex to) // добавить ребро в граф
+        public bool AddEdge(Vertex from, Vertex to, double Weight = 1) // добавить ребро в граф
         {
-            Edge edge = new Edge(from, to); // создаем ребро / экземпляр класса Edge
-            if (AllEdges.Contains(edge)) return false;
+            Edge edge = new Edge(from, to, Weight); // создаем ребро / экземпляр класса Edge
+            if (EdgeIsContains(edge)) return false;
             AllEdges.Add(edge); // добавляем вершину в список всех вершин
             from.AdjEdges.Add(edge); // добавляем вершину в список смежных вершин
             return true;
@@ -33,6 +35,17 @@ namespace ASID
             foreach (var v in Vertices)
             {
                 if (v.Equals(vertexName))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool EdgeIsContains(Edge edge) // наличие вершины
+        {
+            foreach (var v in AllEdges)
+            {
+                if (v.From == edge.From && v.To == edge.To && v.Weight == edge.Weight)
                 {
                     return true;
                 }
@@ -129,16 +142,6 @@ namespace ASID
             u.finished = u.time; // вершина пройдена
             u.time += 1;
         }
-        public void PrintWay(Vertex startVertex, Vertex vertex)
-        {
-            if (startVertex == vertex) 
-                Console.WriteLine("{0}", startVertex);
-            else if (vertex.prevVertex == null) 
-                Console.WriteLine("Пути из {0} в {1} нет", startVertex, vertex);
-            else 
-                PrintWay(startVertex, vertex.prevVertex);
-                Console.WriteLine("Итого: {0}", vertex);
-        }
         public int GraphConnectivity()      // cвязность графа
         {
             foreach (Vertex vertex in Vertices)
@@ -157,6 +160,40 @@ namespace ASID
                     }
                 }
                 return cс;
+            }
+        }
+        public void Dijkstra(Vertex startVertex) // алгоритм дийкстры
+        {
+            foreach (Vertex vertex in Vertices) // раскраска вершин в белый
+            {
+                vertex.color = ColorVertex.White;
+                vertex.distance = double.PositiveInfinity;
+            }
+            startVertex.distance = 0;
+
+            Queue<Vertex> Q = new Queue<Vertex>(); // создаем очередь
+            Q.Enqueue(startVertex);
+
+            while(Q.Count > 0) 
+            { 
+                Vertex v = Q.Dequeue();
+                if (v.color == ColorVertex.White)
+                {
+                    foreach (Edge e in v.AdjEdges)
+                    
+                        Vertex nv = e.To; // вершина, куда идет ребро
+                        if (nv.distance > e.Weight + v.distance)
+                        {
+                            nv.distance = e.Weight + v.distance;
+                        }
+                        Q.Enqueue(nv);
+                    }
+                    v.color = ColorVertex.Black;
+                }
+            }
+            foreach (Vertex vertex in Vertices) // раскраска вершин в белый
+            {
+                Console.WriteLine("shortest distance from {0} to {1} is : {2}",startVertex, vertex, vertex.distance);
             }
         }
     }
