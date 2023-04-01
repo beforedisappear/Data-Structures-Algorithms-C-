@@ -402,11 +402,12 @@ namespace ConsoleTest
             AVLtree3.View(AVLtree3.root);
 
             Console.WriteLine("\nAVL TREE after balancing (Left and Right rotation) :");
+            
             AVLtree3.root = AVLtree3.balance(AVLtree3.root);
             AVLtree3.View(AVLtree3.root);
 
             //CREATING AN AVL TREE
-            Console.WriteLine("\nnew AVL TREE");
+            Console.WriteLine("\nnew AVL TREE before adding a new node :");
             
             AVLTree<string> AVLtree = new AVLTree<string>();
             AVLtree.AddNodeInAVLtree(33, "root");
@@ -416,8 +417,19 @@ namespace ConsoleTest
             AVLtree.AddNodeInAVLtree(21, "leftright");
             AVLtree.AddNodeInAVLtree(61, "rightright");
             AVLtree.AddNodeInAVLtree(8, "leftleftleft");
+
+            AVLtree.View(AVLtree.root);
+
+            Console.WriteLine("\n*adding which unbalances the AVLtree* ");
+            Console.WriteLine("new AVLtree after adding a new node with key = 9 :");
             AVLtree.AddNodeInAVLtree(9, "leftleftleftright");
 
+            AVLtree.View(AVLtree.root);
+
+            Console.WriteLine("\ndeleting node with key = 13");
+            AVLtree.RemoveNode(13);
+
+            Console.WriteLine("AVLtree after deleting :");
             AVLtree.View(AVLtree.root);
 
             Console.ReadKey();

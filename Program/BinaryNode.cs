@@ -10,7 +10,6 @@ namespace ASID
     {
         public int Key;
         public T Value;
-        public int Height;
         public BinaryNode<T> Parent;
         public BinaryNode<T> Right;
         public BinaryNode<T> Left;

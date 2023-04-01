@@ -38,10 +38,7 @@ namespace ASID
                 }
                 if (tmp.Key < k) // ключ корня меньше => тогда идем вправо
                 {
-                    if (tmp.Right != null)
-                    {
-                        tmp = tmp.Right;
-                    }
+                    if (tmp.Right != null) tmp = tmp.Right;
                     else
                     {
                         BinaryNode<T> newNode = new BinaryNode<T>(k, v);
