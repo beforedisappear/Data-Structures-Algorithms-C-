@@ -180,7 +180,7 @@ namespace ASID
                 if (v.color == ColorVertex.White)
                 {
                     foreach (Edge e in v.AdjEdges)
-                    
+                    { 
                         Vertex nv = e.To; // вершина, куда идет ребро
                         if (nv.distance > e.Weight + v.distance)
                         {

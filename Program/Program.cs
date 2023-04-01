@@ -295,44 +295,131 @@ namespace ConsoleTest
             #region ⠀⠀⠀Binary Tree⠀⠀
             Console.WriteLine("\nTest Binary Tree:\n");
 
-            BinaryTree<string> BinaryTree = new BinaryTree<string>();
+            BinaryTree<string> BinaryTree = new BinaryTree<string>(); // создание дерева
 
-            BinaryTree.AddNodeInThree(10, "Root"); // создание корня дерева
-            BinaryTree.AddNodeInThree(15, "Right");
-            BinaryTree.AddNodeInThree(5, "Left");
-            BinaryTree.AddNodeInThree(20, "RightRight");
-            BinaryTree.AddNodeInThree(25, "RightRightRight");
-            BinaryTree.AddNodeInThree(18, "RightRightLeft");
-            BinaryTree.AddNodeInThree(19, "RightRIghtLeftRight");
-            BinaryTree.AddNodeInThree(14, "RightLeft");
-            BinaryTree.AddNodeInThree(1, "LeftLeft");
-            BinaryTree.AddNodeInThree(7, "LeftRight");
-            BinaryTree.AddNodeInThree(8, "LeftRightRight");
+            BinaryTree.AddNodeInTree(10, "Root"); // создание корня дерева
+            BinaryTree.AddNodeInTree(15, "Right");
+            BinaryTree.AddNodeInTree(5, "Left");
+            BinaryTree.AddNodeInTree(20, "RightRight");
+            BinaryTree.AddNodeInTree(25, "RightRightRight");
+            BinaryTree.AddNodeInTree(18, "RightRightLeft");
+            BinaryTree.AddNodeInTree(19, "RightRIghtLeftRight");
+            BinaryTree.AddNodeInTree(14, "RightLeft");
+            BinaryTree.AddNodeInTree(1, "LeftLeft");
+            BinaryTree.AddNodeInTree(7, "LeftRight");
+            BinaryTree.AddNodeInTree(8, "LeftRightRight");
            
-            
 
-
-            Console.WriteLine("По возрастанию");
+            Console.WriteLine("Узлы дерева BinaryTree по возрастанию");
             BinaryTree.ViewAscending(BinaryTree.root);
             Console.WriteLine();
 
-            Console.WriteLine("По убыванию");
+            Console.WriteLine("Узлы дерева BinaryTree по убыванию");
             BinaryTree.ViewDescending(BinaryTree.root);
             Console.WriteLine();
 
-            Console.WriteLine("В прямом порядке");
+            Console.WriteLine("Узлы дерева BinaryTree в прямом порядке");
             BinaryTree.ViewOrder(BinaryTree.root);
             Console.WriteLine();
 
-            Console.WriteLine("Search Node by key 7 : {0}",BinaryTree.Search(7));
-            Console.WriteLine("Minimal Node is : {0}", BinaryTree.MinNode(BinaryTree.root));
-            Console.WriteLine("Maximal Node is : {0}", BinaryTree.MaxNode(BinaryTree.root));
+            Console.WriteLine("Search Node in BinaryTree by key 7 : {0}", BinaryTree.Search(7));
+            Console.WriteLine("Search Node in BinaryTree by key 666 : {0}", BinaryTree.Search(666));
+            Console.WriteLine("Minimal Node in BinaryTree is : {0}", BinaryTree.MinNode(BinaryTree.root));
+            Console.WriteLine("Maximal Node in BinaryTree is : {0}", BinaryTree.MaxNode(BinaryTree.root));
             Console.WriteLine();
 
             BinaryTree.DeleteNode(15);
             Console.WriteLine("After delete node with key = 15: ");
             BinaryTree.ViewAscending(BinaryTree.root);
             Console.WriteLine();
+
+
+            Console.WriteLine("\n___AVL tree___\n");
+
+            // left rotation
+            AVLTree<string> AVLtree1 = new AVLTree<string>();
+            AVLtree1.AddNode(5, "Root");
+            AVLtree1.AddNode(1, "Left");
+            AVLtree1.AddNode(9, "Right");
+            AVLtree1.AddNode(6, "RightLeft");
+            AVLtree1.AddNode(11, "RightRight");
+            AVLtree1.AddNode(10, "RightRightLeft");
+            AVLtree1.AddNode(12, "RightRightRight");
+
+            Console.WriteLine("unbalanced tree :\n");
+            AVLtree1.View(AVLtree1.root);
+
+            Console.WriteLine("\nAVL TREE after balancing (Left rotation) :");
+            AVLtree1.root = AVLtree1.balance(AVLtree1.root);
+            AVLtree1.View(AVLtree1.root);
+
+            // right rotation 
+            AVLTree<string> AVLtree2 = new AVLTree<string>();
+            AVLtree2.AddNode(11, "Root");
+            AVLtree2.AddNode(12, "Right");
+            AVLtree2.AddNode(9, "Left");
+            AVLtree2.AddNode(10, "LeftRight");
+            AVLtree2.AddNode(5, "LeftLeft");
+            AVLtree2.AddNode(6, "LeftLeftRight");
+            AVLtree2.AddNode(1, "LeftLeftLeft");
+
+            Console.WriteLine("\n\nunbalanced tree :\n");
+            AVLtree2.View(AVLtree2.root);
+
+            Console.WriteLine("\nAVL TREE after balancing (Right rotation) :");
+            AVLtree2.root = AVLtree2.balance(AVLtree2.root);
+            AVLtree2.View(AVLtree2.root);
+
+
+            // right left 
+            AVLTree<string> AVLtree4 = new AVLTree<string>();
+            AVLtree4.AddNode(10, "Root");
+            AVLtree4.AddNode(5, "Left");
+            AVLtree4.AddNode(14, "Right");
+            AVLtree4.AddNode(15, "RightRight");
+            AVLtree4.AddNode(12, "RightLeft");
+            AVLtree4.AddNode(13, "RightLeftRight");
+            AVLtree4.AddNode(11, "RightLeftLeft");
+
+            Console.WriteLine("\n\nunbalanced tree\n");
+            AVLtree4.View(AVLtree4.root);
+
+            Console.WriteLine("\nAVL TREE after balancing (Right and Left rotation) :");
+            AVLtree4.root = AVLtree4.balance(AVLtree4.root);
+            AVLtree4.View(AVLtree4.root);
+
+            // left right 
+            AVLTree<string> AVLtree3 = new AVLTree<string>();
+            AVLtree3.AddNode(14, "Root");
+            AVLtree3.AddNode(15, "Right");
+            AVLtree3.AddNode(10, "Left");
+            AVLtree3.AddNode(5, "LeftLeft");
+            AVLtree3.AddNode(12, "LeftRight");
+            AVLtree3.AddNode(13, "LeftRightLeft");
+            AVLtree3.AddNode(11, "LeftRightRight");
+
+            Console.WriteLine("\n\nunbalanced tree\n");
+            AVLtree3.View(AVLtree3.root);
+
+            Console.WriteLine("\nAVL TREE after balancing (Left and Right rotation) :");
+            AVLtree3.root = AVLtree3.balance(AVLtree3.root);
+            AVLtree3.View(AVLtree3.root);
+
+            //CREATING AN AVL TREE
+            Console.WriteLine("\nnew AVL TREE");
+            
+            AVLTree<string> AVLtree = new AVLTree<string>();
+            AVLtree.AddNodeInAVLtree(33, "root");
+            AVLtree.AddNodeInAVLtree(13, "left");
+            AVLtree.AddNodeInAVLtree(53, "right");
+            AVLtree.AddNodeInAVLtree(11, "leftleft");
+            AVLtree.AddNodeInAVLtree(21, "leftright");
+            AVLtree.AddNodeInAVLtree(61, "rightright");
+            AVLtree.AddNodeInAVLtree(8, "leftleftleft");
+            AVLtree.AddNodeInAVLtree(9, "leftleftleftright");
+
+            AVLtree.View(AVLtree.root);
+
             Console.ReadKey();
             #endregion
             #region ⠀⠀⠀⠀⠀Graph⠀⠀⠀⠀⠀⠀

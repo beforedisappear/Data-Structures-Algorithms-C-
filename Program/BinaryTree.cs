@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ASID
 {
+    // BINARY TREE
     class BinaryTree<T>
     {
         public BinaryNode<T> root;  // корень дерева
@@ -13,7 +14,7 @@ namespace ASID
         {
             root = null;
         }
-        public void AddNodeInThree(int k, T v)  // добавление узла
+        public void AddNodeInTree(int k, T v)  // добавление узла
         {
             if (root == null) // передача данных корню
             {
@@ -64,11 +65,13 @@ namespace ASID
                 if (tmp.Key > k) //значит идем влево
                 {
                     if (tmp.Left != null) tmp = tmp.Left;
+                    else break;
                 }
 
                 if (tmp.Key < k) //значит идем вправо
                 {
                     if (tmp.Right != null) tmp = tmp.Right;
+                    else break;
                 }
             }
             return null;

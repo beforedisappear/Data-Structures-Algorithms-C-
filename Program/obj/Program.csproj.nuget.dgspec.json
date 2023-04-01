@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj": {}
+    "C:\\Users\\roman\\source\\repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj": {}
   },
   "projects": {
-    "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj": {
+    "C:\\Users\\roman\\source\\repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj",
+        "projectUniqueName": "C:\\Users\\roman\\source\\repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj",
         "projectName": "Program",
-        "projectPath": "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj",
+        "projectPath": "C:\\Users\\roman\\source\\repos\\Data-Structures-and-Algorithms\\Program\\Program.csproj",
         "packagesPath": "C:\\Users\\roman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roman\\Source\\Repos\\Data-Structures-and-Algorithms\\Program\\obj\\",
+        "outputPath": "C:\\Users\\roman\\source\\repos\\Data-Structures-and-Algorithms\\Program\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
