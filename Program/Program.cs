@@ -1,5 +1,6 @@
 ﻿using System;
 using ASID;
+
 namespace ConsoleTest
 {
     class Program
@@ -431,6 +432,25 @@ namespace ConsoleTest
 
             Console.WriteLine("AVLtree after deleting :");
             AVLtree.View(AVLtree.root);
+
+
+            Console.WriteLine("\n_____RBT_____\n");
+
+            RBT<string> RBTree = new RBT<string>();
+            RBTree.insert(33, "root/black");
+            RBTree.insert(13, "left/red");
+            RBTree.insert(53, "right/black");
+            RBTree.insert(11, "leftleft/black");
+            RBTree.insert(21, "leftright/black");
+            RBTree.insert(41, "rightleft/red");
+            RBTree.insert(61, "rightright/red");
+            RBTree.insert(15, "leftrightleft/red");
+            RBTree.insert(31, "leftrightright/red");
+            RBTree.insert(20, "newnode");
+
+            RBTree.ViewOrder(RBTree.root);
+
+
 
             Console.ReadKey();
             #endregion
